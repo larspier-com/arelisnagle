@@ -1,36 +1,58 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+<x-base-layout>
+    @auth
+        @if (Request::is('static-sign-up'))
+            <div class="flex flex-wrap -mx-3">
+                <div class="w-full max-w-full px-3 flex-0">
+                    @include('layouts.navbars.guest.nav')
+                </div>
+            </div>
+            {{ $slot }}
+            @include('layouts.footers.guest.footer')
+        @elseif (Request::is('static-sign-in'))
+            <div class="container sticky top-0 z-sticky">
+                <div class="flex flex-wrap -mx-3">
+                    <div class="w-full max-w-full px-3 flex-0">
+                        @include('layouts.navbars.guest.nav')
                     </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
+                </div>
+            </div>
+            {{ $slot }}
+            @include('layouts.footers.guest.footer')
+        @else
+            @include('layouts.navbars.auth.sidebar')
+            <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
+                @include('layouts.navbars.auth.nav')
+                <div class="w-full max-w-full overflow-y-auto px-6 py-6 mx-auto">
+                    {{ $slot }}
+                </div>
+                @include('layouts.footers.auth.footer')
             </main>
-        </div>
-    </body>
-</html>
+        @endif
+    @endauth
+
+    @guest
+        @if (in_array(request()->route()->getName(),
+                ['static-sign-up', 'register']))
+            <div class="flex flex-wrap -mx-3">
+                <div class="w-full max-w-full px-3 flex-0">
+                    @include('layouts.navbars.guest.nav')
+                </div>
+            </div>
+            {{ $slot }}
+        @elseif (in_array(request()->route()->getName(),
+                ['static-sign-in', 'login', 'forgot-password', 'reset-password']))
+            <div class="container sticky top-0 z-sticky">
+                <div class="flex flex-wrap -mx-3">
+                    <div class="w-full max-w-full px-3 flex-0">
+                        @include('layouts.navbars.guest.nav')
+                    </div>
+                </div>
+            </div>
+            {{ $slot }}
+        @endif
+
+        @include('layouts.footers.guest.footer')
+
+    @endguest
+
+</x-base-layout>
