@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('support_files', function (Blueprint $table) {
             $table->id();
+            $table->string('collection_name');
+            $table->string('name');
+            $table->string('file_name');
+            $table->string('mime_type')->nullable();
+            $table->unsignedBigInteger('size');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
