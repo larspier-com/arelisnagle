@@ -4,14 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-    <!-- Styles -->
+
+    <!-- Favicons -->
+    <x-favicon />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireScripts<!-- Styles -->
     <style>
         /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */
         *,
@@ -700,7 +707,7 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (prefers-color-scheme: ligth) {
             .dark\:bg-gray-900 {
                 --tw-bg-opacity: 1;
                 background-color: rgb(17 24 39 / var(--tw-bg-opacity))
@@ -828,8 +835,8 @@
 
 <body class="antialiased">
     <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-        @if (Route::has('login'))
+        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-200 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+{{--         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
                 @auth
                     <a href="{{ url('/dashboard') }}"
@@ -845,61 +852,45 @@
                     @endif
                 @endauth
             </div>
-        @endif
+        @endif --}}
 
-        <div class="max-w-7xl mx-auto p-6 lg:p-8">
+        <div class="bg-gray-200 max-w-7xl mx-auto pb-6 lg:pb-8">
             <section>
-                <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
-                    <div class="flex flex-wrap items-center mx-auto max-w-7xl">
+                <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-12 lg:py-24">
+                    <div class="flex flex-wrap mb-12 items-center mx-auto max-w-7xl justify-center">
                         <div class="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
                             <div>
                                 <div class="relative w-full max-w-lg">
-                                    <div
-                                        class="absolute top-0 rounded-full bg-violet-300 -left-4 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob">
-                                    </div>
-
-                                    <div
-                                        class="absolute rounded-full bg-fuchsia-300 -bottom-24 right-20 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000">
-                                    </div>
-                                    <div class="relative">
-                                        <img class="object-cover object-center mx-auto rounded-lg shadow-2xl"
-                                            alt="hero" src="/assets/images/placeholders/squareCard.png">
+                                    <div class="relative mx-2 w-auto">
+                                        <img class="object-cover object-center mx-auto rounded-lg"
+                                            alt="hero" src="/images/Arelis-Nagle.png">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="bg-amber-50 p-2 flex flex-wrap items-center mx-auto max-w-7xl gap-4">
                         <div
-                            class="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
-                            <dl class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                                <div>
+                            class="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 pt-6 md:mb-0 xl:mt-0">
+                            <dl class="grid grid-cols-1 gap-8 md:grid-cols-2">
+
+                                {{-- Dragones Amarillos   --}}
+                                <div class="mb-6 p-4 pb-8 bg-yellow-100 shadow-lg shadow-indigo-400">
                                     <dt
-                                        class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="w-6 h-6 icon icon-tabler icon-tabler-aperture" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(72 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(144 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(216 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(288 12 12)"></line>
-                                        </svg>
+                                        class="inline-flex items-center justify-center flex-shrink-0  mb-5 text-blue-600 rounded-full bg-blue-50">
+                                        <div class="relative mx-2 w-auto">
+                                            <img class="brightness-125 object-cover object-center mx-auto rounded-lg shadow-2xl shadow-orange-400 w-auto"
+                                                alt="hero" src="/images/Dragones-amarillos.png">
+                                        </div>
                                     </dt>
-                                    <dd class="flex-grow">
-                                        <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600">Short
-                                            title</h2>
-                                        <p class="text-base leading-relaxed text-gray-400">Explain 2 great feature here.
-                                            Information about the feature.</p>
-                                        <a href="#"
-                                            class="inline-flex items-center mt-6 font-semibold text-blue-500 md:mb-2 lg:mb-0 hover:text-neutral-600"
+                                    <dd class="flex-grow px-6">
+                                        <h2 class="mb-3 text-xl font-bold uppercase tracking-tighter text-neutral-600">Bonos Dragones Amarillos</h2>
+                                        <p class="text-base leading-relaxed text-gray-400">Programa de Apoyo Humanitario, fundamentado en la Ley GESARA/NESARA, firmado por 209 países.</p>
+                                        <br><br>
+                                        <a href="{{ route('dragonesamarillos') }}"
+                                            class="p-4 bg-gray-300 inline-flex items-center mt-6 mb-8 font-bold text-blue-800 md:mb-2 lg:mb-0 shadow-lg shadow-indigo-500/40 rounded-full hover:text-neutral-600"
                                             title="read more">
-                                            Learn More
+                                            Ingresar
                                             <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                                                 <path fill="none" d="M0 0h24v24H0z"></path>
@@ -910,37 +901,23 @@
                                         </a>
                                     </dd>
                                 </div>
-                                <div>
+
+                                {{-- Restitución Arelis Nagle --}}
+                                <div class="mb-6 p-4 pb-8 bg-yellow-100 shadow-lg shadow-indigo-400">
                                     <dt
-                                        class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="w-6 h-6 icon icon-tabler icon-tabler-aperture" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="1.5"
-                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15">
-                                            </line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(72 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(144 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(216 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(288 12 12)"></line>
-                                        </svg>
+                                        class="inline-flex items-center justify-center flex-shrink-0 mb-5 text-blue-600 rounded-full bg-blue-50">
+                                        <div class="relative mx-2 w-auto">
+                                            <img class="object-cover object-center mx-auto rounded-lg shadow-2xl w-auto"
+                                                alt="hero" src="/images/restitucion-arelis.jpg">
+                                        </div>
                                     </dt>
-                                    <dd class="flex-grow">
-                                        <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600">Short
-                                            title</h2>
-                                        <p class="text-base leading-relaxed text-gray-400">Explain 2 great feature
-                                            here. Information about the feature.</p>
+                                    <dd class="flex-grow px-6">
+                                        <h2 class="mb-3 text-xl font-bold uppercase tracking-tighter text-neutral-600">Restitución Arelis Nagle</h2>
+                                        <p class="text-base leading-relaxed text-gray-400">Programa que busca contribuir a subsanar las pérdidas de un grupo de personas que trabajamos por un mejor mañana para nuestras familias; y hoy se nos binda una nueva puerta, para  juntos lograr esa meta en el nombre del Señor.</p>
                                         <a href="#"
-                                            class="inline-flex items-center mt-6 font-semibold text-blue-500 md:mb-2 lg:mb-0 hover:text-neutral-600"
+                                            class="p-4 bg-gray-300 inline-flex items-center mt-6 mb-8 font-bold text-blue-800 md:mb-2 lg:mb-0 shadow-lg shadow-indigo-500/40 rounded-full hover:text-neutral-600"
                                             title="read more">
-                                            Learn More
+                                            Información Registro e Ingreso
                                             <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 24 24" width="20" height="20"
                                                 fill="currentColor">
@@ -952,37 +929,23 @@
                                         </a>
                                     </dd>
                                 </div>
-                                <div>
+
+                                {{-- Amigos de Mexico --}}
+                                <div class="mb-6 p-4 sm:mb-8 pb-8 bg-yellow-100 shadow-lg shadow-indigo-400">
                                     <dt
-                                        class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="w-6 h-6 icon icon-tabler icon-tabler-aperture" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="1.5"
-                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15">
-                                            </line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(72 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(144 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(216 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(288 12 12)"></line>
-                                        </svg>
+                                        class="inline-flex items-center justify-center flex-shrink-0 mb-5 text-blue-600 rounded-full bg-blue-50">
+                                        <div class="relative mx-2 w-auto">
+                                            <img class="object-cover object-center mx-auto rounded-lg shadow-2xl w-auto"
+                                                alt="hero" src="/images/mexico.png">
+                                        </div>
                                     </dt>
-                                    <dd class="flex-grow">
-                                        <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600">Short
-                                            title</h2>
-                                        <p class="text-base leading-relaxed text-gray-400">Explain 2 great feature
-                                            here. Information about the feature.</p>
+                                    <dd class="flex-grow px-6">
+                                        <h2 class="mb-3 text-xl font-bold uppercase tracking-tighter text-neutral-600">Amigos de Mexico</h2>
+                                        <p class="text-base leading-relaxed text-gray-400">Programa de Nuestroa Amigos de GESARA/NESARA en MEXICO</p>
                                         <a href="#"
-                                            class="inline-flex items-center mt-6 font-semibold text-blue-500 md:mb-2 lg:mb-0 hover:text-neutral-600"
+                                            class="p-4 bg-gray-300 inline-flex items-center mt-6 mb-8 font-bold text-blue-800 md:mb-2 lg:mb-0 shadow-lg shadow-indigo-500/40 rounded-full hover:text-neutral-600"
                                             title="read more">
-                                            Learn More
+                                            Información Registro e Ingreso
                                             <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 24 24" width="20" height="20"
                                                 fill="currentColor">
@@ -994,37 +957,23 @@
                                         </a>
                                     </dd>
                                 </div>
-                                <div>
+
+                                {{-- Amigos de Mexico --}}
+                                <div class="mb-6 p-4 pb-8 bg-yellow-100 shadow-lg shadow-indigo-400">
                                     <dt
-                                        class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="w-6 h-6 icon icon-tabler icon-tabler-aperture" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="1.5"
-                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15">
-                                            </line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(72 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(144 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(216 12 12)"></line>
-                                            <line x1="3.6" y1="15" x2="14.15" y2="15"
-                                                transform="rotate(288 12 12)"></line>
-                                        </svg>
+                                        class="inline-flex items-center justify-center flex-shrink-0 mb-5 text-blue-600 rounded-full bg-blue-50">
+                                        <div class="relative mx-2 w-auto">
+                                            <img class="object-cover object-center mx-auto rounded-lg shadow-2xl w-auto"
+                                                alt="hero" src="/images/lifehuni.png">
+                                        </div>
                                     </dt>
-                                    <dd class="flex-grow">
-                                        <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600">Short
-                                            title</h2>
-                                        <p class="text-base leading-relaxed text-gray-400">Explain 2 great feature
-                                            here. Information about the feature.</p>
+                                    <dd class="flex-grow px-6">
+                                        <h2 class="mb-3 text-xl font-bold uppercase tracking-tighter text-neutral-600">LifeHuni</h2>
+                                        <p class="text-base leading-relaxed text-gray-400"> LifeHuni llegó para mejorar la salud de nuestras Familias.</p>
                                         <a href="#"
-                                            class="inline-flex items-center mt-6 font-semibold text-blue-500 md:mb-2 lg:mb-0 hover:text-neutral-600"
+                                            class="p-4 bg-gray-300 inline-flex items-center mt-6 mb-8 font-bold text-blue-800 md:mb-2 lg:mb-0 shadow-lg shadow-indigo-500/40 rounded-full hover:text-neutral-600"
                                             title="read more">
-                                            Learn More
+                                            Información y Ventas
                                             <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 24 24" width="20" height="20"
                                                 fill="currentColor">

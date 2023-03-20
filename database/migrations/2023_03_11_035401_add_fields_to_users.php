@@ -17,14 +17,15 @@ return new class extends Migration
             $table->string('telegram')->after('whatsapp')->nullable()->unique();
             $table->string('mobile')->after('password')->nullable();
             $table->string('mobile_2')->after('mobile')->nullable();
-            $table->string('passport')->after('telegram')->nullable()->unique();
+            $table->string('passport')->after('mobile_2')->nullable()->unique();
             $table->string('passport_authority')->after('passport')->nullable();
             $table->date('passport_dateofexpiry')->after('passport_authority')->nullable();
             $table->string('passport_nationality')->after('passport_dateofexpiry')->nullable();
-            $table->string('IDdocument')->after('document_type')->nullable()->unique();
-            $table->string('profession')->after('telegram')->nullable();
+            $table->string('IDdocument')->after('mobile_2')->nullable()->unique();
+            $table->string('profession')->after('IDdocument')->nullable();
             $table->date('birthdate')->after('profession')->nullable();
-            $table->enum('marital_status', ['single', 'married', 'separated', 'divorced', 'engaged', 'widowed'])->default('single')->after('profession');
+            $table->enum('gender', ['male', 'female'])->nullable()->after('profession');
+            $table->enum('marital_status', ['single', 'married', 'separated', 'divorced', 'engaged', 'widowed'])->default('single')->after('gender');
             $table->enum('blood_type', ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'])->nullable()->after('birthdate');
             $table->string('country')->after('marital_status')->nullable();
             $table->string('state')->after('country')->nullable();
@@ -37,7 +38,7 @@ return new class extends Migration
             $table->string('emergency_contact_phone')->nullable();
             $table->string('emergency_contact_email')->nullable();
             //files
-            $table->string('photo')->nullable();
+            $table->string('photo')->default('user.jpg');
             $table->string('documentid_file')->nullable();
             $table->string('passport_file')->nullable();
             $table->string('proof-of-address_file')->nullable();
@@ -62,16 +63,19 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropColumn('votes');
             $table->dropColumn('whatsapp');
             $table->dropColumn('telegram');
             $table->dropColumn('mobile');
             $table->dropColumn('mobile_2');
             $table->dropColumn('passport');
+            $table->dropColumn('passport_authority');
+            $table->dropColumn('passport_dateofexpiry');
+            $table->dropColumn('passport_nationality');
             $table->dropColumn('IDdocument');
             $table->dropColumn('profession');
             $table->dropColumn('birthdate');
             $table->dropColumn('marital_status');
+            $table->dropColumn('blood_type');
             $table->dropColumn('country');
             $table->dropColumn('state');
             $table->dropColumn('city');
@@ -79,6 +83,24 @@ return new class extends Migration
             $table->dropColumn('address');
             $table->dropColumn('neighborhood');
             $table->dropColumn('coordinator');
+            $table->dropColumn('emergency_contact_name');
+            $table->dropColumn('emergency_contact_phone');
+            $table->dropColumn('emergency_contact_email');
+            //files
+            $table->dropColumn('photo');
+            $table->dropColumn('documentid_file');
+            $table->dropColumn('passport_file');
+            $table->dropColumn('proof-of-address_file');
+            $table->dropColumn('judicial-record_file');
+            $table->dropColumn('rut_file');
+            // Bank information
+            $table->dropColumn('bank_name');
+            $table->dropColumn('bank_account_number');
+            $table->dropColumn('type-of-bank-account');
+            //Personal Identification Card
+            $table->dropColumn('pic_security_contact_name');
+            $table->dropColumn('pic_security_contact_phone');
+            $table->dropColumn('pic_security_contact_email');
         });
     }
 };

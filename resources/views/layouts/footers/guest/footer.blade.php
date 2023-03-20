@@ -36,8 +36,8 @@
                     <script>
                         document.write(new Date().getFullYear());
                     </script>
-                    Software by <a class="font-semibold text-slate-700" href="https://www.creative-tim.com"
-                        target="_blank">Larspier.com</a>.
+                    {{-- Software by <a class="font-semibold text-slate-700" href="https://www.creative-tim.com"
+                        target="_blank">Larspier.com</a>. --}}
                 </p>
             </div>
         </div>

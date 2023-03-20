@@ -11,7 +11,7 @@
                                 <div class="p-6 pb-0 mb-0 bg-transparent border-b-0 rounded-t-2xl">
                                     <h3 class="relative z-10 font-bold text-transparent bg-gradient-cyan bg-clip-text">
                                         {{ __('Welcome back!') }}</h3>
-                                    <p class="mb-0">{{ __('Create a new acount') }}<br></p>
+                                    <p class="mb-0">{{ __('Login to your acount') }}<br></p>
                                 </div>
 
                                 <div class="flex-auto p-6">

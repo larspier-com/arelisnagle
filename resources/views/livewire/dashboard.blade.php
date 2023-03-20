@@ -8,7 +8,7 @@
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-3">
                             <div>
-                                <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Today's Money</p>
+                                <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">{{__('Profile completed')}}</p>
                                 <h5 class="mb-0 font-bold">
                                     $53,000
                                     <span
@@ -33,8 +33,7 @@
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-3">
                             <div>
-                                <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Today's Users
-                                </p>
+                                <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">{{__('Files uploaded')}}</p>
                                 <h5 class="mb-0 font-bold">
                                     2,300
                                     <span
@@ -59,7 +58,7 @@
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-3">
                             <div>
-                                <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">New Clients</p>
+                                <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">{{__('Fractions')}}</p>
                                 <h5 class="mb-0 font-bold">
                                     +3,462
                                     <span class="leading-normal text-red-600 text-size-sm font-weight-bolder">-2%</span>
@@ -83,7 +82,7 @@
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-3">
                             <div>
-                                <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Sales</p>
+                                <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">{{__('Other programs')}}</p>
                                 <h5 class="mb-0 font-bold">
                                     $103,430
                                     <span

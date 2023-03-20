@@ -8,9 +8,9 @@
                     <script>
                         document.write(new Date().getFullYear() + ",");
                     </script>
-                    by
+                    {{-- by
                     <a href="https://larspier.com" class="font-semibold text-slate-700" target="_blank">Larspier.com</a>
-                    {{ __('for a better world') }}.
+                    {{ __('for a better world') }}. --}}
                 </div>
             </div>
             <div class="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">

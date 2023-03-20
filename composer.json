@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "ascsoftw/tall-crud-generator": "^2.4",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/breeze": "^1.19",
         "laravel/framework": "^10.0",
@@ -13,7 +14,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.12",
         "nnjeim/world": "^1.1",
-        "power-components/livewire-powergrid": "^3.7",
+        "outhebox/blade-flags": "^1.2",
         "spatie/laravel-medialibrary": "^10.0.0"
     },
     "require-dev": {

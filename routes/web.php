@@ -20,7 +20,15 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/tall-crud', function () {
+    return view('vendor.tall-crud-generator.tall-crud-generator');
+})->name('tall-crud');
+
+Route::get('dragonesamarillos', function () {
+    return view('dragonesamarillos');
+})->name('dragonesamarillos');
 
 Route::get('/prueba', function () {
     return view('prueba');

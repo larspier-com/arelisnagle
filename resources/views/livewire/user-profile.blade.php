@@ -107,12 +107,11 @@
 
                                             <div class="mt-0 mb-4">
                                                 <select wire:model.lazy="gender"
-                                                    class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
-                                                     name="gender" id="user-gender" required>
-                                                    <option value="">{{ __('Choose...'}}</option>
-                                                    <option value="male">{{ __('Mr.'}}</option>
-                                                    <option value="female">{{ __('Mrs.'}}</option>
-                                                    <option value="female">{{ __('Miss'}}</option>
+                                                    class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow" name="gender" id="user-gender" required>
+                                                    <option value="">{{ __('Choose...')}}</option>
+                                                    <option value="male">{{ __('Mr.')}}</option>
+                                                    <option value="female">{{ __('Mrs.')}}</option>
+                                                    <option value="female">{{ __('Miss')}}</option>
                                                 </select>
                                                 @error('gender')
                                                     <p class="text-size-sm text-red-500">{{ $message }}</p>

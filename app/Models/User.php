@@ -18,7 +18,52 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    protected $fillable = [
+        'name',
+        'email',
+        'whatsapp',
+        'telegram',
+        'mobile',
+        'mobile_2',
+        'passport',
+        'passport_authority',
+        'passport_dateofexpiry',
+        'passport_nationality',
+        'IDdocument',
+        'profession',
+        'birthdate',
+        'marital_status',
+        'blood_type',
+        'country',
+        'state',
+        'city',
+        'postal_code',
+        'address',
+        'neighborhood',
+        'coordinator',
+        'emergency_contact_name',
+        'emergency_contact_phone',
+        'emergency_contact_email',
+        'photo',
+        'documentid_file',
+        'passport_file',
+        'proof-of-address_file',
+        'judicial-record_file',
+        'rut_file',
+        'bank_name',
+        'bank_account_number',
+        'type-of-bank-account',
+        'pic_security_contact_name',
+        'pic_security_contact_phone',
+        'pic_security_contact_email',
+    ];
+
     /**
      * The attributes that aren't mass assignable.
      *

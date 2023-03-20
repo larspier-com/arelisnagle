@@ -8,21 +8,22 @@ use App\Models\User;
 
 class UserProfile extends Component
 {
-    public User $user; 
-    public $name, $email, $mobile, $telegram, $address, $whatsapp, $profession, $country, $state, $city, $neighborhood, $postal_code;
+    public User $user;
+    public $name, $email, $mobile, $telegram, $address, $whatsapp, $profession, $country, $state, $city, $neighborhood, $gender, $postal_code;
 
     protected $rules = [
         'name' => 'max:40|min:3',
         'email' => 'email:rfc,dns',
-        'mobile' => 'max:13',
+        'mobile' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
         'telegram' => 'max:30',
         'address' => 'string',
         'profession' => 'string',
-        'whatsapp' => 'max:13',
+        'whatsapp' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
         'country' => 'string',
         'state' => 'string',
         'city' => 'string',
         'neighborhood' => 'string',
+        'gender' => 'string',
         'postal_code' => 'numeric'
     ];
 
@@ -39,6 +40,7 @@ class UserProfile extends Component
         $this->country = $this->user->country;
         $this->state = $this->user->state;
         $this->city = $this->user->city;
+        $this->gender = $this->user->gender;
         $this->neighborhood = $this->user->neighborhood;
         $this->postal_code = $this->user->postal_code;
     }
@@ -57,12 +59,13 @@ class UserProfile extends Component
                 'email' => $this->email,
                 'mobile' => $this->mobile,
                 'telegram' => $this->telegram,
-                'address' => $this->address, 
+                'address' => $this->address,
                 'whatsapp' => $this->whatsapp,
-                'profession' => $this->profesion,
+                'profession' => $this->profession,
                 'country' => $this->user->country,
                 'state' => $this->user->state,
                 'city' => $this->user->city,
+                'gender' => $this->user->gender,
                 'neighborhood' => $this->user->neighborhood,
                 'postal_code' => $this->user->postal_code
             ]);
