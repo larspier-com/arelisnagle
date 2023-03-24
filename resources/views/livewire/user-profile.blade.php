@@ -610,7 +610,7 @@
                             {{-- Security Information --}}
 
                             <div class="flex justify-between">
-                                <div class="flex flex-inline w-full px-3">
+                                <div class="w-full px-3">
                                     <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
                                         {{ __('Bank Name') }}</h6>
                                     <div class="mb-4">
@@ -622,7 +622,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="flex flex-inline w-full px-3">
+                                <div class="w-full px-3">
                                     <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
                                         {{ __('Bank Account Number') }}</h6>
                                     <div class="mb-4">
@@ -634,7 +634,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="flex flex-inline w-full px-3">
+                                <div class="w-full px-3">
                                     <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
                                         {{ __('type of bank account') }}</h6>
                                     <div class="mb-4">
