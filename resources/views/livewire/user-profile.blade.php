@@ -1,11 +1,11 @@
 <div>
     <div class="w-full px-6 mx-auto">
-        <div class="relative flex items-center p-0 mt-6 overflow-hidden bg-center bg-cover min-h-75 rounded-2xl"
+        {{-- <div class="relative flex items-center p-0 mt-6 overflow-hidden bg-center bg-cover min-h-75 rounded-2xl"
             style="background-image: url('../assets/img/curved-images/curved0.jpg'); background-position-y: 50%">
             <span class="absolute inset-y-0 w-full h-full bg-center bg-cover bg-gradient-fuchsia opacity-60"></span>
-        </div>
+        </div> --}}
         <div
-            class="relative flex flex-col flex-auto min-w-0 p-4 mx-6 -mt-16 overflow-hidden break-words border-0 shadow-blur rounded-2xl bg-white/80 bg-clip-border backdrop-blur-2xl backdrop-saturate-200">
+            class="relative flex flex-col flex-auto min-w-0 p-4 mx-6 mt-16 overflow-hidden break-words border-0 shadow-blur rounded-2xl bg-white/80 bg-clip-border backdrop-blur-2xl backdrop-saturate-200">
             <div class="flex flex-wrap -mx-3">
                 <div class="flex-none w-auto max-w-full px-6">
                     <div
@@ -14,12 +14,12 @@
                             class="w-16 shadow-soft-sm rounded-xl" />
                     </div>
                     <div class="absolute bottom-0 ">
-                    <a href="#" class="p-2 bg-yellow-300 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(155, 155, 155, 1);transform: ;msFilter:;">
-                            <path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5 0-2.711 2.29-5 5-5s5 2.289 5 5c0 2.71-2.29 5-5 5z"></path>
-                            <path d="M13 9h-2v2H9v2h2v2h2v-2h2v-2h-2z"></path>
-                        </svg>
-                    </a>
+                        <button type="button" class="p-2 bg-yellow-300 rounded-full" id="open-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(155, 155, 155, 1);transform: ;msFilter:;">
+                                <path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5 0-2.711 2.29-5 5-5s5 2.289 5 5c0 2.71-2.29 5-5 5z"></path>
+                                <path d="M13 9h-2v2H9v2h2v2h2v-2h2v-2h-2z"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 <div class="flex-none w-auto max-w-full px-3 my-auto">
@@ -70,7 +70,7 @@
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex-auto p-4">
 
-                    <h5 class="font-bold py-3">{{ __('Profile Information') }}</h5>
+                    <h5 class="py-3 font-bold">{{ __('Profile Information') }}</h5>
 
                     @if (Session::has('status'))
                         <div id="alert"
@@ -83,23 +83,12 @@
                         </div>
                     @endif
 
-                    @if (Session::has('demo'))
-                        <div id="alert"
-                            class="relative p-4 pr-12 mb-4 text-white border border-solid rounded-lg bg-gradient-red border-slate-100">
-                            {{ Session::get('demo') }}
-                            <button type="button" onclick="alertClose()"
-                                class="box-content absolute top-0 right-0 p-2 text-white bg-transparent border-0 rounded w-4-em h-4-em text-size-sm z-2">
-                                <span aria-hidden="true" class="text-center cursor-pointer">&#10005;</span>
-                            </button>
-                        </div>
-                    @endif
-
                     <form wire:submit.prevent="save">
                         <div class="flex flex-wrap -mx-3">
-                            <div class="max-w-full px-3 w-1/2 lg:flex-none">
+                            <div class="w-1/2 max-w-full px-3 lg:flex-none">
                                 <div class="flex flex-col h-full">
-                                    <div class="flex flex-inline mt-0 w-full gap-2">
-                                        <div class="mt-0 px-3 pt-0 w-1/6">
+                                    <div class="flex w-full gap-2 mt-0 flex-inline">
+                                        <div class="w-1/6 px-3 pt-0 mt-0">
                                             <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
                                                 <svg width="16px" height="16px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><circle cx="6" cy="4" r="2"></circle><path d="M9 7H3a1 1 0 0 0-1 1v7h2v7h4v-7h2V8a1 1 0 0 0-1-1z"></path><circle cx="17" cy="4" r="2"></circle><path d="M20.21 7.73a1 1 0 0 0-1-.73h-4.5a1 1 0 0 0-1 .73L12 14h2l-1 4h2v4h4v-4h2l-1-4h2z"></path></svg>
                                                 {{ __('Mr/Mrs') }}
@@ -107,18 +96,18 @@
 
                                             <div class="mt-0 mb-4">
                                                 <select wire:model.lazy="gender"
-                                                    class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow" name="gender" id="user-gender" required>
+                                                    class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                                    id="user-gender" required>
                                                     <option value="">{{ __('Choose...')}}</option>
-                                                    <option value="male">{{ __('Mr.')}}</option>
-                                                    <option value="female">{{ __('Mrs.')}}</option>
-                                                    <option value="female">{{ __('Miss')}}</option>
+                                                    <option value="male" {{ $gender == 'male' ? 'selected="selected"' : '' }}>{{ __('Mr.')}}</option>
+                                                    <option value="female" {{ $gender == 'female' ? 'selected="selected"' : '' }}>{{ __('Mrs.')}}</option>
                                                 </select>
                                                 @error('gender')
-                                                    <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                                    <p class="text-red-500 text-size-sm">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="mt-0 px-3 pt-0 w-full">
+                                        <div class="w-full px-3 pt-0 mt-0">
                                             <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
                                                 <svg width="16px" height="16px" viewBox="0 0 32 32"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -181,7 +170,7 @@
                                                     class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
                                                     placeholder="Name" id="user-name" required />
                                                 @error('name')
-                                                    <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                                    <p class="text-red-500 text-size-sm">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -230,33 +219,9 @@
                                             class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
                                             placeholder="Email" id="user-email" required />
                                         @error('email')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
                                         @enderror
                                     </div>
-
-
-                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
-                                        <svg fill="#000000" width="16px" height="16px" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M19.799 5.165l-2.375-1.83a1.997 1.997 0 0 0-.521-.237A2.035 2.035 0 0 0 16.336 3H9.5l.801 5h6.035c.164 0 .369-.037.566-.098s.387-.145.521-.236l2.375-1.832c.135-.091.202-.212.202-.334s-.067-.243-.201-.335zM8.5 1h-1a.5.5 0 0 0-.5.5V5H3.664c-.166 0-.37.037-.567.099-.198.06-.387.143-.521.236L.201 7.165C.066 7.256 0 7.378 0 7.5c0 .121.066.242.201.335l2.375 1.832c.134.091.323.175.521.235.197.061.401.098.567.098H7v8.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-17a.5.5 0 0 0-.5-.5z" />
-                                        </svg>
-                                        {{ __('Address') }}
-                                    </h6>
-
-                                    <div class="mb-4">
-                                        <input wire:model.lazy="address" type="text"
-                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
-                                            placeholder="{{ __('Address') }}" id="user-address" required />
-                                        @error('address')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="max-w-full px-3 w-1/2 lg:flex-none">
-                                <div class="flex flex-col h-full">
 
                                     <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
                                         <svg width="16px" height="16px" viewBox="0 0 1024 1024" class="icon"
@@ -279,10 +244,192 @@
                                             class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
                                             placeholder="Profession" id="profession" required />
                                         @error('profession')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
                                         @enderror
                                     </div>
 
+                                </div>
+                            </div>
+                            <div class="w-1/2 max-w-full px-3 lg:flex-none">
+                                <div class="flex flex-col h-full">
+
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                            <path d="M9.715 12c1.151 0 2-.849 2-2s-.849-2-2-2-2 .849-2 2 .848 2 2 2z"></path>
+                                            <path d="M20 4H4c-1.103 0-2 .841-2 1.875v12.25C2 19.159 2.897 20 4 20h16c1.103 0 2-.841 2-1.875V5.875C22 4.841 21.103 4 20 4zm0 14-16-.011V6l16 .011V18z"></path>
+                                            <path d="M14 9h4v2h-4zm1 4h3v2h-3zm-1.57 2.536c0-1.374-1.676-2.786-3.715-2.786S6 14.162 6 15.536V16h7.43v-.464z"></path>
+                                        </svg>
+                                        {{ __('DNI') }}
+                                    </h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="IDdocument" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="IDdocument" id="user-IDdocument" required />
+                                        @error('IDdocument')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        <svg fill="#000000" height="16px" width="16px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 430 430" xml:space="preserve">
+                                            <g>
+                                                <g>
+                                                    <g>
+                                                        <polygon points="281,0 126.263,60 281,60 			"/>
+                                                        <path d="M85,76v354h260V76H85z M310.5,152c0,4.418-3.582,8-8,8h-71c-4.418,0-8-3.582-8-8c0-4.418,3.582-8,8-8h71
+                                                            C306.918,144,310.5,147.582,310.5,152z M260.151,281H223v-82.495C242.647,205.947,258.321,240.126,260.151,281z M153.5,113h123
+                                                            c4.418,0,8,3.582,8,8c0,4.418-3.582,8-8,8h-123c-4.419,0-8-3.582-8-8C145.5,116.582,149.081,113,153.5,113z M115.319,297h38.509
+                                                            c1.536,38.644,14.136,71.068,32.413,87.796C147.483,373.178,118.618,338.693,115.319,297z M115.318,281
+                                                            c1.949-24.628,12.813-46.743,29.382-63.111c11.47-11.35,25.678-19.932,41.542-24.687c-18.278,16.728-30.878,49.152-32.415,87.798
+                                                            H115.318z M207,379.495c-19.647-7.442-35.32-41.621-37.151-82.495H207V379.495z M207,281h-37.151
+                                                            c1.831-40.874,17.504-75.053,37.151-82.495V281z M199.5,160h-72c-4.419,0-8-3.582-8-8c0-4.418,3.581-8,8-8h72
+                                                            c4.418,0,8,3.582,8,8C207.5,156.418,203.918,160,199.5,160z M223,379.495V297h37.152
+                                                            C258.321,337.874,242.647,372.053,223,379.495z M243.76,384.796c18.277-16.728,30.877-49.152,32.413-87.796h38.508
+                                                            C311.382,338.693,282.517,373.178,243.76,384.796z M276.173,281c-1.536-38.646-14.137-71.07-32.415-87.798
+                                                            c15.864,4.755,30.072,13.337,41.542,24.687c16.569,16.368,27.433,38.484,29.382,63.111H276.173z"/>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        {{ __('Passport') }}
+                                    </h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="passport" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="passport" id="user-passport" required />
+                                        @error('passport')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        <svg class="svg-icon" style="width: 16px; height: 16px;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M704 512c58.88 0 106.24-47.786667 106.24-106.666667s-47.36-106.666667-106.24-106.666666c-58.88 0-106.666667 47.786667-106.666667 106.666666s47.786667 106.666667 106.666667 106.666667z m-320-42.666667c70.613333 0 127.573333-57.386667 127.573333-128s-56.96-128-127.573333-128c-70.613333 0-128 57.386667-128 128s57.386667 128 128 128z m320 128c-78.293333 0-234.666667 39.253333-234.666667 117.333334V810.666667h469.333334v-96c0-78.08-156.373333-117.333333-234.666667-117.333334z m-320-42.666666c-99.626667 0-298.666667 49.92-298.666667 149.333333v106.666667h298.666667v-96c0-36.266667 14.293333-99.626667 101.12-148.053334C448 558.72 411.946667 554.666667 384 554.666667z"  />
+                                        </svg>
+                                        {{ __('Coordinator') }}
+                                    </h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="coordinator" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="coordinator" id="coordinator" required />
+                                        @error('coordinator')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <h5 class="py-3 font-bold">{{ __('Address Information') }}</h5>
+
+                        <div class="flow-root">
+                            {{-- Country Line --}}
+
+                            <div class="flex justify-between">
+                                <div class="w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        {{ __('Country') }}</h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="country" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="country" id="user-country" required />
+                                        @error('country')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        {{ __('State') }}</h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="state" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="state" id="user-state" required />
+                                        @error('state')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        {{ __('City') }}</h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="city" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="city" id="user-city" required />
+                                        @error('city')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Ubicación Geografica --}}
+                            <div class="flex justify-between">
+                                <div class="w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        <svg fill="#000000" width="16px" height="16px" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M19.799 5.165l-2.375-1.83a1.997 1.997 0 0 0-.521-.237A2.035 2.035 0 0 0 16.336 3H9.5l.801 5h6.035c.164 0 .369-.037.566-.098s.387-.145.521-.236l2.375-1.832c.135-.091.202-.212.202-.334s-.067-.243-.201-.335zM8.5 1h-1a.5.5 0 0 0-.5.5V5H3.664c-.166 0-.37.037-.567.099-.198.06-.387.143-.521.236L.201 7.165C.066 7.256 0 7.378 0 7.5c0 .121.066.242.201.335l2.375 1.832c.134.091.323.175.521.235.197.061.401.098.567.098H7v8.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-17a.5.5 0 0 0-.5-.5z" />
+                                        </svg>
+                                        {{ __('Address') }}
+                                    </h6>
+
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="address" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="{{ __('Address') }}" id="user-address" required />
+                                        @error('address')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M18.991 2H9.01C7.899 2 7 2.899 7 4.01v5.637l-4.702 4.642A1 1 0 0 0 3 16v5a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4.009C21 2.899 20.102 2 18.991 2zm-8.069 13.111V20H5v-5.568l2.987-2.949 2.935 3.003v.625zM13 9h-2V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"></path>
+                                            path d="M7 15h2v2H7z"></path>
+                                        </svg>
+                                        {{ __('Neighborhood') }}</h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="neighborhood" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="neighborhood" id="user-neighborhood" required />
+                                        @error('neighborhood')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"  class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        {{ __('Postal Code') }}
+                                    </h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="postal_code" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="postal_code" id="user-postal_code" required />
+                                        @error('postal_code')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <h5 class="py-3 font-bold">{{ __('Contact Information') }}</h5>
+
+                        <div class="flow-root">
+
+                            {{-- Social Networks --}}
+
+                            <div class="flex justify-between">
+                                <div class="w-full px-3">
                                     <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
                                         <svg width="16px" height="16px" viewBox="0 0 1024 1024" class="icon"
                                             version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -300,14 +447,41 @@
                                         {{ __('Phone number') }}
                                     </h6>
                                     <div class="mb-4">
-                                        <input wire:model.lazy="mobile" type="phone"
+                                        <input wire:model.lazy="mobile" type="tel"
                                             class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
                                             placeholder="Phone number" id="mobile" required />
                                         @error('phone')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
                                         @enderror
                                     </div>
-
+                                </div>
+                                <div class="w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        <svg width="16px" height="16px" viewBox="0 0 1024 1024" class="icon"
+                                            version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M512 512m-480 0a480 480 0 1 0 960 0 480 480 0 1 0-960 0Z"
+                                                fill="#FFE8CD" />
+                                            <path
+                                                d="M678.4 780.8H345.6c-25.6 0-44.8-19.2-44.8-44.8V249.6c0-25.6 19.2-44.8 44.8-44.8h332.8c25.6 0 44.8 19.2 44.8 44.8v486.4c0 25.6-19.2 44.8-44.8 44.8z"
+                                                fill="#FF9D1C" />
+                                            <path
+                                                d="M633.6 608H390.4c-19.2 0-32-12.8-32-32V294.4c0-19.2 12.8-32 32-32H640c19.2 0 32 12.8 32 32V576c-6.4 19.2-19.2 32-38.4 32z"
+                                                fill="#FFCA83" />
+                                            <path d="M512 697.6m-38.4 0a38.4 38.4 0 1 0 76.8 0 38.4 38.4 0 1 0-76.8 0Z"
+                                                fill="#FFFFFF" />
+                                        </svg>
+                                        {{ __('Phone number') }} Alternative
+                                    </h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="mobile_2" type="tel"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="Phone number" id="mobile_2" required />
+                                        @error('phone')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="w-full px-3">
                                     <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
                                         <svg width="16px" height="16px" viewBox="0 0 32 32" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -332,10 +506,11 @@
                                             class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
                                             placeholder="telegram" id="user-telegram" required />
                                         @error('telegram')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
                                         @enderror
                                     </div>
-
+                                </div>
+                                <div class="w-full px-3">
                                     <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
                                         <svg width="16px" height="16px" viewBox="0 0 32 32" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -363,99 +538,140 @@
                                         Whatsapp
                                     </h6>
                                     <div class="mb-4">
-                                        <input wire:model.lazy="whatsapp" type="text"
+                                        <input wire:model.lazy="whatsapp" type="tel"
                                             class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
                                             placeholder="whatsapp" id="user-whatsapp" required />
                                         @error('whatsapp')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
                                         @enderror
                                     </div>
-
                                 </div>
                             </div>
 
                         </div>
+
+                        <h5 class="py-3 font-bold">{{ __('Security Information') }}</h5>
+
                         <div class="flow-root">
+                        <h6 class="py-4 font-serif text-sm font-light italic  text-slate-300"><span>¿A que persona y por qué le dirias que ya te llamaron para que te dirijas al lugar de la diligenicia?</span></h6>
+                        </div>
+
+                        <div class="flow-root">
+
+                            {{-- Security Information --}}
+
                             <div class="flex justify-between">
-                                <div class="px-3 w-full">
+                                <div class="w-full px-3">
                                     <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
-                                        {{ __('Neighborhood') }}</h6>
+                                        {{ __('Name') }}</h6>
                                     <div class="mb-4">
-                                        <input wire:model.lazy="neighborhood" type="text"
+                                        <input wire:model.lazy="pic_security_contact_name" type="text"
                                             class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
-                                            placeholder="neighborhood" id="user-neighborhood" required />
-                                        @error('neighborhood')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                            placeholder="pic_security_contact_name" id="user-pic_security_contact_name" required />
+                                        @error('pic_security_contact_name')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="px-3 w-full">
+                                <div class="w-full px-3">
                                     <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
-                                        {{ __('Postal Code') }}</h6>
+                                        {{ __('Phone') }}</h6>
                                     <div class="mb-4">
-                                        <input wire:model.lazy="postal_code" type="text"
+                                        <input wire:model.lazy="pic_security_contact_phone" type="tel"
                                             class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
-                                            placeholder="postal_code" id="user-postal_code" required />
-                                        @error('postal_code')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                            placeholder="pic_security_contact_phone" id="user-pic_security_contact_phone" required />
+                                        @error('pic_security_contact_phone')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        {{ __('Email') }}</h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="pic_security_contact_email" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="pic_security_contact_email" id="user-pic_security_contact_email" required />
+                                        @error('pic_security_contact_email')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="flex justify-between">
-                                <div class="px-3 w-full">
-                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
-                                        {{ __('Country') }}</h6>
-                                    <div class="mb-4">
-                                        <input wire:model.lazy="country" type="text"
-                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
-                                            placeholder="country" id="user-country" required />
-                                        @error('country')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="px-3 w-full">
-                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
-                                        {{ __('State') }}</h6>
-                                    <div class="mb-4">
-                                        <input wire:model.lazy="state" type="text"
-                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
-                                            placeholder="state" id="user-state" required />
-                                        @error('state')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="px-3 w-full">
-                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
-                                        {{ __('City') }}</h6>
-                                    <div class="mb-4">
-                                        <input wire:model.lazy="city" type="text"
-                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
-                                            placeholder="city" id="user-city" required />
-                                        @error('city')
-                                            <p class="text-size-sm text-red-500">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button type="submit"
-                                class="float-right inline-block px-6 py-3 mt-6 mb-2 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer active:opacity-85 hover:scale-102 hover:shadow-soft-xs leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-dark-gray hover:border-slate-700 hover:bg-slate-700 hover:text-white">
-                                Save changes
-                            </button>
 
                         </div>
 
+                        <div class="flow-root">
+                        <h6 class="py-4 font-serif text-sm font-light italic  text-slate-300"><span>Si en dado caso, por efectos de desplazamiento, se requiere realizar un apoyo, como anticipo, por favor indicanos la siguiente información</span></h6>
+                        </div>
+
+                        <div class="flow-root">
+
+                            {{-- Security Information --}}
+
+                            <div class="flex justify-between">
+                                <div class="flex flex-inline w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        {{ __('Bank Name') }}</h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="bank_name" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="bank_name" id="user-bank_name" required />
+                                        @error('bank_name')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="flex flex-inline w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        {{ __('Bank Account Number') }}</h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="bank_account_number" type="tel"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="bank_account_number" id="user-bank_account_number" required />
+                                        @error('bank_account_number')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="flex flex-inline w-full px-3">
+                                    <h6 class="font-bold leading-tight uppercase text-size-xs text-slate-500">
+                                        {{ __('type of bank account') }}</h6>
+                                    <div class="mb-4">
+                                        <input wire:model.lazy="type-of-bank-account" type="text"
+                                            class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                            placeholder="type-of-bank-account" id="user-type-of-bank-account" required />
+                                        @error('type-of-bank-account')
+                                            <p class="text-red-500 text-size-sm">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flow-root">
+                                <h6 class="py-4 font-serif text-sm-xs font-light italic  text-slate-500">
+                                    <span>PD: Las cuentas deben estar a nombre del titular que compró la fracción. En caso de no tener cuenta bancaria, deje el espacio en blanco.</span>
+                                </h6>
+                            </div>
+
+                        </div>
+
+                        <div class="flow-root">
+                            {{-- Botones y Mensajes --}}
+                            <button type="submit"
+                                class="inline-block float-right px-6 py-3 mt-6 mb-2 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer active:opacity-85 hover:scale-102 hover:shadow-soft-xs leading-pro text-size-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-dark-gray hover:border-slate-700 hover:bg-slate-700 hover:text-white">
+                                {{__('Save changes')}}
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
-
-                </form>
-
             </div>
         </div>
     </div>
+
+
+
 
     <script>
         function alertClose() {

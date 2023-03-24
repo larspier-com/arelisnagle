@@ -12,6 +12,24 @@ class HealthCondition extends Model
     use HasFactory;
 
     /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
+    protected $fillable = [
+        'is_disability',
+        'disability',
+        'allergies',
+        'any_disease',
+        'disease',
+        'any_medicine',
+        'medicine',
+        'any_foodrestriction',
+        'foodrestriction',
+        'user_id'
+    ];
+
+    /**
      * The attributes that aren't mass assignable.
      *
      * @var array

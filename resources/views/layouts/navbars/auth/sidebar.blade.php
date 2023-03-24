@@ -85,7 +85,118 @@
 
                     </div>
                     <span
-                        class="{{ Request::is('rtl') ? 'mr-1' : 'ml-1' }} duration-300 opacity-100 pointer-events-none ease-soft">{{ __('User Profile') }}</span>
+                        class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{{ __('User Profile') }}</span>
+                </a>
+            </li>
+
+            <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
+              {{ Request::is('files-uploaded') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700' : '' }}"
+                    href="{{ url('files-uploaded') }}">
+                    <div
+                        class="{{ Request::is('files-uploaded') ? ' bg-gradient-fuchsia' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(254, 254, 255);transform: ;msFilter:;">
+                            <title>{{ __('Files uploaded') }}</title>
+                            <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Rounded-Icons" transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF"
+                                    fill-rule="nonzero">
+                                    <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
+                                        <g id="customer-support" transform="translate(1.000000, 0.000000)">
+                                            <path class="{{ Request::is('files-uploaded') ? '' : 'fill-slate-800' }}"
+                                                d="M18.944 11.112C18.507 7.67 15.56 5 12 5 9.244 5 6.85 6.611 5.757 9.15 3.609 9.792 2 11.82 2 14c0 2.757 2.243 5 5 5h11c2.206 0 4-1.794 4-4a4.01 4.01 0 0 0-3.056-3.888zM13 14v3h-2v-3H8l4-5 4 5h-3z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+
+                    </div>
+                    <span
+                        class="{{ Request::is('rtl') ? 'mr-1' : 'ml-1' }} duration-300 opacity-100 pointer-events-none ease-soft">{{ __('Files uploaded') }}</span>
+                </a>
+            </li>
+
+            <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
+              {{ Request::is('medical-profile') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700' : '' }}"
+                    href="{{ url('medical-profile') }}">
+                    <div
+                        class="{{ Request::is('medical-profile') ? ' bg-gradient-fuchsia' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                        <title>{{ __('Medical Profile') }}</title>
+                            <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Rounded-Icons" transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF"
+                                    fill-rule="nonzero">
+                                    <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
+                                        <g id="customer-support" transform="translate(1.000000, 0.000000)">
+                                            <path  class="{{ Request::is('medical-profile') ? '' : 'fill-slate-800' }}"
+                                                d="M20 6h-3V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM9 4h6v2H9zm7 10h-3v3h-2v-3H8v-2h3V9h2v3h3z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <span
+                        class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{{ __('Medical Profile') }}</span>
+                </a>
+            </li>
+
+            <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
+              {{ Request::is('user-relatives') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700' : '' }}"
+                    href="{{ url('user-relatives') }}">
+                    <div
+                        class="{{ Request::is('user-relatives') ? ' bg-gradient-fuchsia' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                            <title>{{ __('Relatives') }}</title>
+                            <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Rounded-Icons" transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF"
+                                    fill-rule="nonzero">
+                                    <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
+                                        <g id="customer-support" transform="translate(1.000000, 0.000000)">
+                                            <path  class="{{ Request::is('user-relatives') ? '' : 'fill-slate-800' }}"
+                                                d="M20 6h-3V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM9 4h6v2H9zm7 10h-3v3h-2v-3H8v-2h3V9h2v3h3z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <span
+                        class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{{ __('Relatives') }}</span>
+                </a>
+            </li>
+
+            <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
+              {{ Request::is('personal-references') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700' : '' }}"
+                    href="{{ url('personal-references') }}">
+                    <div
+                        class="{{ Request::is('personal-references') ? ' bg-gradient-fuchsia' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                            <title>{{ __('References') }}</title>
+                            <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Rounded-Icons" transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF"
+                                    fill-rule="nonzero">
+                                    <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
+                                        <g id="customer-support" transform="translate(1.000000, 0.000000)">
+                                            <path  class="{{ Request::is('personal-references') ? '' : 'fill-slate-800' }}"
+                                                d="M20 6h-3V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM9 4h6v2H9zm7 10h-3v3h-2v-3H8v-2h3V9h2v3h3z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <span
+                        class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">{{ __('References') }}</span>
                 </a>
             </li>
 
@@ -182,9 +293,45 @@
             </li>
 
             <li class="w-full mt-4">
-                <h6
-                    class="{{ Request::is('rtl') ? 'pr-6 mr-2' : 'pl-6 ml-2' }} font-bold leading-tight uppercase text-size-xs opacity-60">
-                    Account pages</h6>
+                <h5
+                    class="pl-6 ml-2 font-bold leading-tight uppercase text-size-xs opacity-60">
+                    Super Admin</h5>
+            </li>
+
+            <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
+              {{ Request::is('tall-crud') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700' : '' }}"
+                    href="{{ url('tall-crud') }}">
+                    <div
+                        class="{{ Request::is('tall-crud') ? ' bg-gradient-fuchsia' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+
+                        <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>customer-support</title>
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF"
+                                    fill-rule="nonzero">
+                                    <g transform="translate(1716.000000, 291.000000)">
+                                        <g transform="translate(1.000000, 0.000000)">
+                                            <path class="{{ Request::is('tall-crud') ? '' : 'fill-slate-800' }}"
+                                                d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z">
+                                            </path>
+                                            <path class="{{ Request::is('tall-crud') ? '' : 'fill-slate-800' }}"
+                                                d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z">
+                                            </path>
+                                            <path class="{{ Request::is('tall-crud') ? '' : 'fill-slate-800' }}"
+                                                d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
+                    <span
+                        class="{{ Request::is('rtl') ? 'mr-1' : 'ml-1' }} duration-300 opacity-100 pointer-events-none ease-soft">TALL Crud</span>
+                </a>
             </li>
 
             <li class="mt-0.5 w-full">

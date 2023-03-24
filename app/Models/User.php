@@ -37,6 +37,7 @@ class User extends Authenticatable
         'passport_nationality',
         'IDdocument',
         'profession',
+        'gender',
         'birthdate',
         'marital_status',
         'blood_type',

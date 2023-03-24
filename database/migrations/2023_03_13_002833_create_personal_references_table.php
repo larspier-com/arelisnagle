@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('country');
             $table->string('city');
+            $table->enum('type-of-reference', ['personal', 'emergency', 'security'])->nullable()->default('personal');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

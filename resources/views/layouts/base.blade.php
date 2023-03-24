@@ -24,11 +24,13 @@
     <!-- AlpineJS -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js"></script>
 
+
+
     <!-- Main Styling -->
     <link href="{{ asset('assets') }}/css/styles.css?v=1.0.3" rel="stylesheet" />
 
 
-    <!-- Styles -->
+    <!-- Scripts -->
     @livewireStyles
 </head>
 
